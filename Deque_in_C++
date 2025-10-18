@@ -1,0 +1,49 @@
+#include <iostream>
+#include <deque>
+using namespace std;
+
+int main() {
+    // Create a deque of integers
+    deque<int> dq;
+
+    // ---------------- INSERTION OPERATIONS ----------------
+    dq.push_back(10);   // insert at the end
+    dq.push_back(20);
+    dq.push_front(5);   // insert at the beginning
+    dq.push_front(2);
+
+    cout << "Deque after insertion: ";
+    for (int i : dq)
+        cout << i << " ";
+    cout << endl;
+
+    // ---------------- ACCESS OPERATIONS ----------------
+    cout << "Front element: " << dq.front() << endl;
+    cout << "Back element: " << dq.back() << endl;
+
+    // ---------------- DELETION OPERATIONS ----------------
+    dq.pop_front();  // remove first element
+    dq.pop_back();   // remove last element
+
+    cout << "Deque after deletion: ";
+    for (int i : dq)
+        cout << i << " ";
+    cout << endl;
+
+    // ---------------- INSERT AT SPECIFIC POSITION ----------------
+    auto it = dq.begin();
+    advance(it, 1);   // move iterator to 2nd position
+    dq.insert(it, 15);
+
+    cout << "After inserting 15 at 2nd position: ";
+    for (int i : dq)
+        cout << i << " ";
+    cout << endl;
+
+    // ---------------- SIZE & CLEAR ----------------
+    cout << "Size of deque: " << dq.size() << endl;
+    dq.clear();
+    cout << "Deque cleared. Is empty? " << (dq.empty() ? "Yes" : "No") << endl;
+
+    return 0;
+}
